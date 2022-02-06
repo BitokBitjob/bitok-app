@@ -12,7 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+<<<<<<< HEAD
         android:layout_marginTop="16dp"
+=======
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
         android:text="Welcome to Bitjob"
         android:textColor="#000000"
         android:textSize="23sp"
@@ -27,7 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+<<<<<<< HEAD
         android:layout_marginTop="8dp"
+=======
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
         android:text="Login"
         android:textColor="@color/first_color"
         android:textSize="28sp"
@@ -61,10 +67,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <EditText
+<<<<<<< HEAD
             android:id="@+id/editText1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+=======
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
             android:background="@drawable/background_edittext"
             android:drawableRight="@drawable/ic_username"
             android:elevation="5dp"
@@ -74,11 +86,18 @@
             android:padding="15dp" />
 
         <EditText
+<<<<<<< HEAD
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="5dp"
+=======
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
             android:background="@drawable/background_edittext"
             android:drawableRight="@drawable/ic_password"
             android:elevation="5dp"
@@ -138,10 +157,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+<<<<<<< HEAD
         android:textSize="18sp"
         android:background="@drawable/background_btn"
         android:text="Login"
         android:textColor="@color/white"
+=======
+        android:background="@drawable/background_btn"
+        android:text="Login"
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

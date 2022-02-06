@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+<<<<<<< HEAD
 import android.widget.TextView
+=======
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
 import androidx.navigation.fragment.findNavController
 
 class signupFragment : Fragment() {
@@ -22,11 +25,14 @@ class signupFragment : Fragment() {
             findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
         }
 
+<<<<<<< HEAD
         val text = view.findViewById<TextView>(R.id.textView5)
         text.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
         }
 
+=======
+>>>>>>> 9555c7ee115ded7e87df5ff511fbd43eb24322b6
         return view
     }
 
