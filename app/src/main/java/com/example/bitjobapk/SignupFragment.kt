@@ -15,8 +15,10 @@ class SignupFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        //todo migrate to ViewBinding
         val view = inflater.inflate(R.layout.fragment_signup, container, false)
+
+        //todo choose better names for variables!
         val button = view.findViewById<Button>(R.id.btn_signup)
         button.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
