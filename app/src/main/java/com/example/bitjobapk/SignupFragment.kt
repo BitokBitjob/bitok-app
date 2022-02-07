@@ -8,28 +8,38 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.example.bitjobapk.databinding.FragmentLoginBinding
+import com.example.bitjobapk.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
+
+    private var _binding: FragmentSignupBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //todo migrate to ViewBinding
-        val view = inflater.inflate(R.layout.fragment_signup, container, false)
 
-        //todo choose better names for variables!
-        val button = view.findViewById<Button>(R.id.btn_signup)
+        _binding = FragmentSignupBinding.inflate(inflater, container, false)
+
+
+        val button = binding.btnSignup
         button.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
         }
 
-        val text = view.findViewById<TextView>(R.id.tv_login)
-        text.setOnClickListener {
+        val textView = binding.tvLogin
+        textView.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
         }
 
-        return view
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

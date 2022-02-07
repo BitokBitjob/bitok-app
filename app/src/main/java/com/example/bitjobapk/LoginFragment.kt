@@ -7,24 +7,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.example.bitjobapk.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment() {
 
+    private var _binding:FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        //todo migrate to ViewBinding
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+    ): View {
+
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         //todo choose better names for variables!
-        val text = view.findViewById<TextView>(R.id.tv_signup)
+        val text = binding.tvSignup
         text.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
-        return view
+        return binding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
