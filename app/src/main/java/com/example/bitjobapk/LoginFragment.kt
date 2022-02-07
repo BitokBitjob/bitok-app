@@ -5,13 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import org.w3c.dom.Text
 
 
-class loginFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,7 +17,7 @@ class loginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
-        val text = view.findViewById<TextView>(R.id.textView5)
+        val text = view.findViewById<TextView>(R.id.tv_signup)
         text.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
