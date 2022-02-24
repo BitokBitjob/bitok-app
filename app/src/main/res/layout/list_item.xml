@@ -7,6 +7,7 @@
 
     <ImageView
         android:id="@+id/clockimageView"
+        android:src="@drawable/time"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_margin="8dp"
@@ -16,6 +17,7 @@
     <TextView
         android:id="@+id/listtextview1"
         android:layout_width="150dp"
+        android:text="aaa"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginTop="8dp"
@@ -25,6 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:text="bbb"
         android:id="@+id/listtextview2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -39,6 +42,7 @@
 
     <TextView
         android:id="@+id/listtextview3"
+        android:text="ccc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -51,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/listtextview2" />
 
     <TextView
+        android:text="ddd"
         android:id="@+id/listtextview4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
