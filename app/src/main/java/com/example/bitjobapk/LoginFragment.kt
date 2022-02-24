@@ -28,6 +28,11 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
+        val button = binding.btnLogin
+        button.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recyclerFragment)
+        }
+
         return binding.root
     }
 

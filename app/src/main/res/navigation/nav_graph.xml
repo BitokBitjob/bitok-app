@@ -15,6 +15,9 @@
             app:destination="@id/signupFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_recyclerFragment"
+            app:destination="@id/recyclerFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -29,4 +32,9 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <activity
+        android:id="@+id/recyclerFragment"
+        android:name="com.example.bitjobapk.RecyclerFragment"
+        android:label="fragment_recycler"
+        tools:layout="@layout/fragment_recycler" />
 </navigation>
