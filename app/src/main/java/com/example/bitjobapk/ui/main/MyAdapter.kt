@@ -1,4 +1,4 @@
-package com.example.bitjobapk
+package com.example.bitjobapk.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,14 +6,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bitjobapk.R
+import com.example.bitjobapk.data.Event
 
-class MyAdapter (private val newsList : ArrayList<Events>) :
+class MyAdapter (private val newsList : List<Event>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item,
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.list_item,
         parent,false)
         return  MyViewHolder(itemView)
 

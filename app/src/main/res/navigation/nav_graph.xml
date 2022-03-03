@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/eventListFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.bitjobapk.LoginFragment"
+        android:name="com.example.bitjobapk.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,12 +16,12 @@
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_loginFragment_to_recyclerFragment"
-            app:destination="@id/recyclerFragment" />
+            android:id="@+id/action_loginFragment_to_eventListFragment"
+            app:destination="@id/eventListFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
-        android:name="com.example.bitjobapk.SignupFragment"
+        android:name="com.example.bitjobapk.ui.login.SignupFragment"
         android:label="fragment_signup"
         tools:layout="@layout/fragment_signup" >
         <action
@@ -32,9 +32,9 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
-    <activity
-        android:id="@+id/recyclerFragment"
-        android:name="com.example.bitjobapk.RecyclerFragment"
-        android:label="fragment_recycler"
-        tools:layout="@layout/fragment_recycler" />
+    <fragment
+        android:id="@+id/eventListFragment"
+        android:name="com.example.bitjobapk.ui.main.EventListFragment"
+        android:label="EventListFragment" />
+
 </navigation>

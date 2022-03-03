@@ -19,6 +19,11 @@
         <entry key="..\:/Users/Markazi.co/AndroidStudioProjects/bitok-app-master/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Markazi.co/AndroidStudioProjects/bitok-app-master/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/Markazi.co/AndroidStudioProjects/bitok-app-master/app/src/main/res/layout/fragment_signup.xml" value="0.31574074074074077" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/fragment_recycler.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.35520833333333335" />
       </map>
     </option>
   </component>

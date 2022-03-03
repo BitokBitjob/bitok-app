@@ -1,14 +1,12 @@
-package com.example.bitjobapk
+package com.example.bitjobapk.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import com.example.bitjobapk.databinding.FragmentLoginBinding
+import com.example.bitjobapk.R
 import com.example.bitjobapk.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
