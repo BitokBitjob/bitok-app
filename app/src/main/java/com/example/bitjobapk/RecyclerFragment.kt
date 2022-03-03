@@ -1,17 +1,15 @@
 package com.example.bitjobapk
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bitjobapk.databinding.FragmentLoginBinding
+import com.example.bitjobapk.databinding.FragmentSignupBinding
 
-class RecyclerFragment : AppCompatActivity() {
+class BlankFragment : Fragment() {
 
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<Events>
@@ -21,9 +19,12 @@ class RecyclerFragment : AppCompatActivity() {
     lateinit var nameId : Array<String>
     lateinit var descriptionId : Array<String>
 
-    override fun onCreate(savedInstanceState: Bundle?){
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_recycler)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+
+    ): View? {
+
 
         imageId = arrayOf(
             R.drawable.time
@@ -52,6 +53,8 @@ class RecyclerFragment : AppCompatActivity() {
         newArrayList = arrayListOf<Events>()
         getUserdata()
 
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_recycler, container, false)
 
     }
 
@@ -66,5 +69,8 @@ class RecyclerFragment : AppCompatActivity() {
 
         newRecyclerView.adapter = MyAdapter(newArrayList)
     }
+
+
+
 
 }
