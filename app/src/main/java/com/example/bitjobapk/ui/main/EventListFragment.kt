@@ -1,24 +1,28 @@
 package com.example.bitjobapk.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.bitjobapk.MainActivity
+import com.example.bitjobapk.R
 import com.example.bitjobapk.data.Event
 import com.example.bitjobapk.databinding.FragmentEventListBinding
+import com.plcoding.retrofitcrashcourse.RetrofitInstance
+import retrofit2.HttpException
+import java.io.IOException
 
 class EventListFragment : Fragment() {
+
+
     private lateinit var binding: FragmentEventListBinding
 
-//    private lateinit var newRecyclerView: RecyclerView
-    private lateinit var dataList: MutableList<Event>
-//    lateinit var imageId : Array<Int>
-//    lateinit var timeId : Array<String>
-//    lateinit var titleId : Array<String>
-//    lateinit var nameId : Array<String>
-//    lateinit var descriptionId : Array<String>
+    private var dataList = mutableListOf<Event>()
 
     private lateinit var rvAdapter: MyAdapter
 
@@ -33,38 +37,32 @@ class EventListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        imageId = arrayOf(
-//            R.drawable.time
-//        )
-//
-//        timeId = arrayOf(
-//            "12:00"
-//        )
-//
-//        titleId = arrayOf(
-//            "Event"
-//        )
-//
-//        nameId = arrayOf(
-//            "AliReza"
-//        )
-//
-//        descriptionId = arrayOf(
-//            "Powered by bitok"
-//        )
 
-//        newRecyclerView =
-//        newRecyclerView.layoutManager = LinearLayoutManager(this)
-//        newRecyclerView.setHasFixedSize(true)
 
-        dataList = mutableListOf(
-            Event(0,"0","test1","qwerty","lorem ipsum"),
-            Event(0,"0","test1","qwerty","lorem ipsum"),
-            Event(0,"0","test1","qwerty","lorem ipsum"),
-            Event(0,"0","test1","qwerty","lorem ipsum"),
-            Event(0,"0","test1","qwerty","lorem ipsum"),
-            Event(0,"0","test1","qwerty","lorem ipsum"),
-        )
+        lifecycleScope.launchWhenCreated {
+//            binding.progressBar.isVisible = true
+            val response = try {
+                RetrofitInstance.api.getEvents()
+            } catch(e: IOException) {
+//                Log.e(TAG, "IOException, you might not have internet connection")
+//                binding.progressBar.isVisible = false
+                return@launchWhenCreated
+            } catch (e: HttpException) {
+//                Log.e(TAG, "HttpException, unexpected response")
+//                binding.progressBar.isVisible = false
+                return@launchWhenCreated
+            }
+            if(response.isSuccessful && response.body() != null) {
+                dataList = response.body()!!.toMutableList()
+                rvAdapter.notifyDataSetChanged()
+            } else {
+//                Log.e(TAG, "Response not successful")
+            }
+//            binding.progressBar.isVisible = false
+        }
+
+
+
         rvAdapter = MyAdapter(dataList)
 
         binding.recyclerview.apply {
@@ -72,19 +70,5 @@ class EventListFragment : Fragment() {
             setHasFixedSize(true)
             adapter = rvAdapter
         }
-//        getUserdata()
-
     }
-
-//    private fun getUserdata() {
-//        for(i in imageId.indices){
-//
-//            val events = Event(imageId[i],timeId[i],titleId[i],nameId[i],descriptionId[i])
-//            newArrayList.add(events)
-//
-//        }
-//        newRecyclerView.adapter = MyAdapter(newArrayList)
-//    }
-
-
 }
