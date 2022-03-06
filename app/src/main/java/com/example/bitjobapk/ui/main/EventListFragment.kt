@@ -22,7 +22,7 @@ class EventListFragment : Fragment() {
 
     private lateinit var binding: FragmentEventListBinding
 
-    private var dataList = mutableListOf<Event>()
+//    private var dataList = mutableListOf<Event>()
 
     private lateinit var rvAdapter: MyAdapter
 
@@ -37,6 +37,13 @@ class EventListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        rvAdapter = MyAdapter()
+
+        binding.recyclerview.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = rvAdapter
+        }
 
 
         lifecycleScope.launchWhenCreated {
@@ -53,9 +60,10 @@ class EventListFragment : Fragment() {
                 return@launchWhenCreated
             }
             if(response.isSuccessful && response.body() != null) {
-                dataList = response.body()!!.toMutableList()
-                rvAdapter.notifyDataSetChanged()
+                rvAdapter.events = response.body()!!.toMutableList()
+//                rvAdapter.notifyDataSetChanged()
             } else {
+                val a =1
 //                Log.e(TAG, "Response not successful")
             }
 //            binding.progressBar.isVisible = false
@@ -63,12 +71,6 @@ class EventListFragment : Fragment() {
 
 
 
-        rvAdapter = MyAdapter(dataList)
 
-        binding.recyclerview.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
-            adapter = rvAdapter
-        }
     }
 }

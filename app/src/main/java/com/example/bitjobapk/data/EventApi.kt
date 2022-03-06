@@ -11,7 +11,7 @@ interface EventApi {
 
     //todo
 
-    @GET("/todos")
+    @GET("/behnawwm/sample-data/main/test.json")
     suspend fun getEvents(): Response<List<Event>>
 
 }

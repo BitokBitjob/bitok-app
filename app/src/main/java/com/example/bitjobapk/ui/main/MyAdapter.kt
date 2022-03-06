@@ -5,11 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bitjobapk.R
 import com.example.bitjobapk.data.Event
 
-class MyAdapter (private val newsList : List<Event>) :
+class MyAdapter () :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
@@ -24,8 +26,8 @@ class MyAdapter (private val newsList : List<Event>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        val currentItem = newsList[position]
-        holder.titleImage.setImageResource(currentItem.image)
+        val currentItem = events[position]
+//        holder.titleImage. = currentItem.image
         holder.time.text = currentItem.time
         holder.title.text = currentItem.title
         holder.name.text = currentItem.name
@@ -34,7 +36,7 @@ class MyAdapter (private val newsList : List<Event>) :
     }
 
     override fun getItemCount(): Int {
-        return newsList.size
+        return events.size
     }
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
@@ -46,5 +48,20 @@ class MyAdapter (private val newsList : List<Event>) :
         val description : TextView = itemView.findViewById(R.id.listtextview4)
 
     }
+
+    private val diffCallback = object : DiffUtil.ItemCallback<Event>() {
+        override fun areItemsTheSame(oldItem: Event, newItem: Event): Boolean {
+            return oldItem.name == newItem.name
+        }
+
+        override fun areContentsTheSame(oldItem: Event, newItem: Event): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    private val differ = AsyncListDiffer(this, diffCallback)
+    var events: List<Event>
+        get() = differ.currentList
+        set(value) { differ.submitList(value) }
 
 }

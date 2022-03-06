@@ -7,7 +7,7 @@ object RetrofitInstance {
 
     val api: EventApi by lazy {
         Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com")
+            .baseUrl("https://raw.githubusercontent.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(EventApi::class.java)

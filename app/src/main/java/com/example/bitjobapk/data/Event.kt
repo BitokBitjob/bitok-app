@@ -1,7 +1,7 @@
 package com.example.bitjobapk.data
 
 data class Event(
-    val image: Int,
+    val image: String,
     val time: String,
     val title: String,
     val name: String,
