@@ -1,10 +1,12 @@
 package com.example.bitjobapk.ui.main
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,26 +49,25 @@ class EventListFragment : Fragment() {
 
 
         lifecycleScope.launchWhenCreated {
-//            binding.progressBar.isVisible = true
+            binding.progressBar.isVisible = true
             val response = try {
                 RetrofitInstance.api.getEvents()
             } catch(e: IOException) {
-//                Log.e(TAG, "IOException, you might not have internet connection")
-//                binding.progressBar.isVisible = false
+                Log.e(TAG, "IOException, you might not have internet connection")
+                binding.progressBar.isVisible = false
                 return@launchWhenCreated
             } catch (e: HttpException) {
-//                Log.e(TAG, "HttpException, unexpected response")
-//                binding.progressBar.isVisible = false
+               Log.e(TAG, "HttpException, unexpected response")
+                binding.progressBar.isVisible = false
                 return@launchWhenCreated
             }
             if(response.isSuccessful && response.body() != null) {
                 rvAdapter.events = response.body()!!.toMutableList()
-//                rvAdapter.notifyDataSetChanged()
+                rvAdapter.notifyDataSetChanged()
             } else {
-                val a =1
-//                Log.e(TAG, "Response not successful")
+                Log.e(TAG, "Response not successful")
             }
-//            binding.progressBar.isVisible = false
+            binding.progressBar.isVisible = false
         }
 
 
