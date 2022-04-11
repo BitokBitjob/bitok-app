@@ -36,5 +36,15 @@
         android:id="@+id/eventListFragment"
         android:name="com.example.bitjobapk.ui.main.EventListFragment"
         android:label="EventListFragment" />
+    <fragment
+        android:id="@+id/registeredEventFragment"
+        android:name="com.example.bitjobapk.ui.main.RegisteredEventFragment"
+        android:label="fragment_registered_event"
+        tools:layout="@layout/fragment_registered_event" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.bitjobapk.ui.main.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/ic_event"
+        android:id="@+id/eventListFragment"
         android:icon="@drawable/ic_event"
         android:title="Events"/>
     <item
-        android:id="@+id/ic_registered_event"
+        android:id="@+id/registeredEventFragment"
         android:icon="@drawable/ic_registered_event"
         android:title="Registered Events"/>
     <item
-        android:id="@+id/ic_profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile"
         android:title="Profile"/>
 </menu>
