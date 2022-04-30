@@ -42,8 +42,8 @@ class MyAdapter () :
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
         val titleImage : ImageView = itemView.findViewById(R.id.clockimageView)
-        val time : TextView = itemView.findViewById(R.id.listtextview1)
-        val title : TextView = itemView.findViewById(R.id.listtextview2)
+        val time : TextView = itemView.findViewById(R.id.listtextview2)
+        val title : TextView = itemView.findViewById(R.id.listtextview1)
         val name : TextView = itemView.findViewById(R.id.listtextview3)
         val description : TextView = itemView.findViewById(R.id.listtextview4)
 
