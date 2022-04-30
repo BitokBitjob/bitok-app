@@ -2,55 +2,48 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:background="@drawable/round_shape">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/clockimageView"-->
-<!--        android:layout_width="20dp"-->
-<!--        android:layout_height="20dp"-->
-<!--        android:layout_margin="8dp"-->
-<!--        android:src="@drawable/time"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="20dp"
+        tools:ignore="MissingConstraints">
 
-<!--    <TextView-->
-<!--        android:id="@+id/listtextview1"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="3dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="aaa"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/clockimageView"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
-
-
+        <ImageView
+            android:id="@+id/roundedImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+    </androidx.cardview.widget.CardView>
 
 
     <TextView
         android:id="@+id/listtextview1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="5dp"
         android:text="aaaaa"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <ImageView
         android:id="@+id/clockimageView"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_margin="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listtextview1" />
@@ -60,11 +53,10 @@
         android:id="@+id/listtextview2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="5dp"
         android:text="bbbbb"
         android:textSize="15dp"
-        android:layout_margin="5dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/clockimageView"
         app:layout_constraintTop_toBottomOf="@+id/listtextview1" />
 
@@ -82,20 +74,47 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:gravity="center"
         android:text="ccccc"
         android:textSize="15dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/personimageView"
         app:layout_constraintTop_toBottomOf="@+id/listtextview2" />
+
+    <TextView
+        android:id="@+id/listtextview5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:text="|"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/listtextview3"
+        app:layout_constraintTop_toBottomOf="@+id/clockimageView" />
+
+    <ImageView
+        android:id="@+id/moneyimageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginHorizontal="5dp"
+        android:src="@drawable/money"
+        app:layout_constraintStart_toEndOf="@+id/listtextview5"
+        app:layout_constraintTop_toTopOf="@+id/personimageView" />
+
+    <TextView
+        android:id="@+id/listtextview6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="100$"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/moneyimageView"
+        app:layout_constraintTop_toBottomOf="@+id/clockimageView" />
 
     <TextView
         android:id="@+id/listtextview4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
         android:layout_margin="5dp"
-        android:gravity="center"
+        android:layout_marginHorizontal="8dp"
         android:text="ddddd"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.HorizontalScrollView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -21,11 +22,8 @@ import java.io.IOException
 
 class EventListFragment : Fragment() {
 
-
     private lateinit var binding: FragmentEventListBinding
-
 //    private var dataList = mutableListOf<Event>()
-
     private lateinit var rvAdapter: MyAdapter
 
     override fun onCreateView(
@@ -41,11 +39,14 @@ class EventListFragment : Fragment() {
 
         rvAdapter = MyAdapter()
 
+
         binding.recyclerview.apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
             setHasFixedSize(true)
             adapter = rvAdapter
         }
+
 
 
         lifecycleScope.launchWhenCreated {
