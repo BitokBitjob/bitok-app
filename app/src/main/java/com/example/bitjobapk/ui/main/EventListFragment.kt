@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bitjobapk.MainActivity
 import com.example.bitjobapk.R
+import com.example.bitjobapk.data.ChipViewModel
 import com.example.bitjobapk.data.Event
 import com.example.bitjobapk.databinding.FragmentEventListBinding
 import com.plcoding.retrofitcrashcourse.RetrofitInstance
@@ -25,6 +26,7 @@ class EventListFragment : Fragment() {
     private lateinit var binding: FragmentEventListBinding
 //    private var dataList = mutableListOf<Event>()
     private lateinit var rvAdapter: MyAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +40,6 @@ class EventListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         rvAdapter = MyAdapter()
-
-
         binding.recyclerview.apply {
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
@@ -47,6 +47,14 @@ class EventListFragment : Fragment() {
             adapter = rvAdapter
         }
 
+
+        binding.recyclerview2.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        val data = ArrayList<ChipViewModel>()
+        for (i in 1..7) {
+            data.add(ChipViewModel(R.drawable.ic_launcher_background, "Category " + i))
+        }
+        val adapter = ChipAdapter(data)
+        binding.recyclerview2.adapter = adapter
 
 
         lifecycleScope.launchWhenCreated {
