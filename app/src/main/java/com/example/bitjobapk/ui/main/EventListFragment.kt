@@ -24,7 +24,8 @@ import java.io.IOException
 class EventListFragment : Fragment() {
 
     private lateinit var binding: FragmentEventListBinding
-//    private var dataList = mutableListOf<Event>()
+
+    //    private var dataList = mutableListOf<Event>()
     private lateinit var rvAdapter: MyAdapter
 
 
@@ -41,14 +42,16 @@ class EventListFragment : Fragment() {
 
         rvAdapter = MyAdapter()
         binding.recyclerview.apply {
-            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-            setHasFixedSize(true)
+//            setHasFixedSize(true)
             adapter = rvAdapter
         }
 
 
-        binding.recyclerview2.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        binding.recyclerview2.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         val data = ArrayList<ChipViewModel>()
         for (i in 1..7) {
             data.add(ChipViewModel(R.drawable.ic_launcher_background, "Category " + i))
@@ -61,25 +64,24 @@ class EventListFragment : Fragment() {
             binding.progressBar.isVisible = true
             val response = try {
                 RetrofitInstance.api.getEvents()
-            } catch(e: IOException) {
+            } catch (e: IOException) {
                 Log.e(TAG, "IOException, you might not have internet connection")
                 binding.progressBar.isVisible = false
                 return@launchWhenCreated
             } catch (e: HttpException) {
-               Log.e(TAG, "HttpException, unexpected response")
+                Log.e(TAG, "HttpException, unexpected response")
                 binding.progressBar.isVisible = false
                 return@launchWhenCreated
             }
-            if(response.isSuccessful && response.body() != null) {
-                rvAdapter.events = response.body()!!.toMutableList()
-                rvAdapter.notifyDataSetChanged()
+            if (response.isSuccessful && response.body() != null) {
+                response.body()?.let {
+                    rvAdapter.submitList(it)
+                }
             } else {
                 Log.e(TAG, "Response not successful")
             }
             binding.progressBar.isVisible = false
         }
-
-
 
 
     }
